@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Paul Holden"]
   spec.email         = ["paul@holdensoftware.com"]
 
-  spec.summary       = %q{Convert hashes to (and from) a flattened key-value pair.}
+  spec.summary       = %q{Convert hashes to (and from) a flattened key-value pair array.}
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/paulholden2/smush"
   spec.license       = "MIT"
