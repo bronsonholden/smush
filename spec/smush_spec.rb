@@ -14,7 +14,11 @@ RSpec.describe Smush do
           age: 32
         }
       ],
-      favorite_food: "Chicken Cobb Salad"
+      favorite_food: "Chicken Cobb Salad",
+      tasks: [
+        "Do the laundry",
+        "Wash the car"
+      ]
     }
   }
 
@@ -43,6 +47,14 @@ RSpec.describe Smush do
       {
         key: [:favorite_food],
         value: "Chicken Cobb Salad"
+      },
+      {
+        key: [:tasks, 0],
+        value: "Do the laundry"
+      },
+      {
+        key: [:tasks, 1],
+        value: "Wash the car"
       }
     ]
   }
@@ -50,7 +62,7 @@ RSpec.describe Smush do
   it "Smushes a hash" do
     val = Smush.smush(unsmushed)
     expect(val).not_to be_nil
-    expect(val.size).to eq(6)
+    expect(val.size).to eq(8)
     expect(val).to include(*smushed)
   end
 
