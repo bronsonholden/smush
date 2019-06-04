@@ -32,6 +32,38 @@ key is encountered, Smush will always assume the target object is an Array.
 ]
 ```
 
+### How
+
+```rb
+require 'smush'
+
+hash = {
+  name: 'Bob Smith',
+  favorite_foods: ['BLT', 'Hot Dog On A Stick'],
+  siblings: [
+    {
+      name: 'Ron Smith'
+    }
+  ]
+}
+
+smushed = Smush.smush(hash)
+
+# smushed = [
+#   {
+#     key: [:name],
+#     value: 'Bob Smith'
+#   },
+#   {
+#     key: [:favorite_foods, 0],
+#     value: 'BLT'
+#   },
+#   ...
+# ]
+
+original = Smush.unsmush(smushed)
+```
+
 Smush does not check your inputs for consistency, e.g. check that your
 smushed hash doesn't have duplicate keys, or that you aren't skipping
 indices in your arrays.
